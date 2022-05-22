@@ -224,7 +224,8 @@ class QzonePhotoManager(object):
             c = json.loads(c)
             if 'data' in c and 'photoList' in c['data']:
                 photolist = c['data']['photoList']
-
+                if photolist is None:
+                    return photos
                 for i in photolist:
                     if i['raw']:
                         pic_url = i['raw']
